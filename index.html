@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Academic Report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="back">← Back to Portfolio</a>
+    <h2>Student Report Card</h2>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Academic Report Generator 🎓</h1>
+      <p>Enter student details and marks to generate a report.</p>
+
+      <form id="reportForm">
+        <label for="studentName">Student Name</label>
+        <input id="studentName" type="text"
+               placeholder="Enter student name" required>
+
+        <label for="registerNo">Register Number</label>
+        <input id="registerNo" type="text"
+               placeholder="Enter register number" required>
+
+        <label for="course">Course</label>
+        <input id="course" type="text"
+               placeholder="e.g. BCA" required>
+
+        <label for="semester">Semester</label>
+        <select id="semester" required>
+          <option value="">Select semester</option>
+          <option>Semester 1</option>
+          <option>Semester 2</option>
+          <option>Semester 3</option>
+          <option>Semester 4</option>
+          <option>Semester 5</option>
+          <option>Semester 6</option>
+        </select>
+
+        <h2 class="subheading">Enter Subject Marks</h2>
+        <p class="hint">Maximum 100 marks per subject.</p>
+
+        <div id="subjects">
+          <div class="subject-row">
+            <input class="subject-name" type="text"
+                   placeholder="Subject name" required>
+            <input class="subject-mark" type="number"
+                   placeholder="Marks / 100" min="0" max="100"
+                   step="1" required>
+            <button type="button" class="remove-btn"
+                    aria-label="Remove subject">×</button>
+          </div>
+        </div>
+
+        <button type="button" id="addSubject" class="secondary">
+          + Add Subject
+        </button>
+
+        <button type="submit" class="primary">
+          Generate Report
+        </button>
+      </form>
+    </section>
+
+    <section id="report" class="card" hidden>
+      <h2>Student Result</h2>
+      <div id="studentDetails"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody id="resultRows"></tbody>
+        </table>
+      </div>
+
+      <div class="summary">
+        <div>
+          <p>Total Marks</p>
+          <h3 id="totalMarks">0</h3>
+        </div>
+        <div>
+          <p>Percentage</p>
+          <h3 id="percentage">0%</h3>
+        </div>
+        <div>
+          <p>Overall Result</p>
+          <h3 id="overallResult">-</h3>
+        </div>
+      </div>
+
+      <button type="button" id="printBtn" class="primary">
+        Print / Save as PDF
+      </button>
+    </section>
+  </main>
+
+  <footer>Student Academic Report | Demo Project</footer>
+  <script src="javascript.js"></script>
+</body>
+</html>
